@@ -41,7 +41,7 @@ def run():
         qresp = quote_ctx.quote(symbols)  # 同步方法
         for q in qresp:
             quotes[q.symbol] = q
-            print(f"  {q.symbol}: ${q.last_done} ({q.change_ratio*100:.2f}%)")
+            print(f"  {q.symbol}: ${q.last_done}")
 
     holdings = []
     total_cost = 0
