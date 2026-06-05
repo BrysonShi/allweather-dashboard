@@ -1,11 +1,25 @@
 {
-  "updated_at": "2026-06-05T08:18:07.638902+00:00",
+  "updated_at": "2026-06-05T08:24:14.145730+00:00",
   "account_currency": "USD",
-  "total_invested": 0,
-  "total_current_value": 0,
-  "total_pnl_amount": 0,
+  "total_invested": 0.0,
+  "total_current_value": 0.0,
+  "total_pnl_amount": 0.0,
   "total_pnl_pct": 0,
-  "holdings": [],
+  "holdings": [
+    {
+      "symbol": "StockPositionChannel { account_channel: \"lb_sg\", positions: [StockPosition { symbol: \"YMAG.US\", symbol_name: \"YieldMax Magnificent 7 Fund of Option Income ETF\", quantity: 48, available_quantity: 48, currency: \"USD\", cost_price: 12.540, market: US, init_quantity: Some(48) }, StockPosition { symbol: \"SPDW.US\", symbol_name: \"SPDR World Ex Us\", quantity: 4, available_quantity: 4, currency: \"USD\", cost_price: 51.090, market: US, init_quantity: Some(4) }, StockPosition { symbol: \"IAUI.US\", symbol_name: \"NEOS Gold High Income ETF\", quantity: 2, available_quantity: 2, currency: \"USD\", cost_price: 54.300, market: US, init_quantity: Some(2) }, StockPosition { symbol: \"GUNR.US\", symbol_name: \"Flexshares Global Upstream Natural Res\", quantity: 1.6, available_quantity: 1.6, currency: \"USD\", cost_price: 54.369, market: US, init_quantity: Some(1.6) }, StockPosition { symbol: \"DBMF.US\", symbol_name: \"iMGP DBi Managed Futures Strategy ETF\", quantity: 15, available_quantity: 15, currency: \"USD\", cost_price: 31.229, market: US, init_quantity: Some(15) }] }",
+      "name": "StockPositionChannel { account_channel: \"lb_sg\", positions: [StockPosition { symbol: \"YMAG.US\", symbol_name: \"YieldMax Magnificent 7 Fund of Option Income ETF\", quantity: 48, available_quantity: 48, currency: \"USD\", cost_price: 12.540, market: US, init_quantity: Some(48) }, StockPosition { symbol: \"SPDW.US\", symbol_name: \"SPDR World Ex Us\", quantity: 4, available_quantity: 4, currency: \"USD\", cost_price: 51.090, market: US, init_quantity: Some(4) }, StockPosition { symbol: \"IAUI.US\", symbol_name: \"NEOS Gold High Income ETF\", quantity: 2, available_quantity: 2, currency: \"USD\", cost_price: 54.300, market: US, init_quantity: Some(2) }, StockPosition { symbol: \"GUNR.US\", symbol_name: \"Flexshares Global Upstream Natural Res\", quantity: 1.6, available_quantity: 1.6, currency: \"USD\", cost_price: 54.369, market: US, init_quantity: Some(1.6) }, StockPosition { symbol: \"DBMF.US\", symbol_name: \"iMGP DBi Managed Futures Strategy ETF\", quantity: 15, available_quantity: 15, currency: \"USD\", cost_price: 31.229, market: US, init_quantity: Some(15) }] }",
+      "quantity": 0.0,
+      "cost_price": 0.0,
+      "cost_value": 0.0,
+      "current_price": 0.0,
+      "current_value": 0.0,
+      "pnl_amount": 0.0,
+      "pnl_pct": 0,
+      "currency": "USD",
+      "last_updated": "2026-06-05T08:24:14.145709+00:00"
+    }
+  ],
   "allocation": {
     "total_budget_usd": 1500,
     "target": {
