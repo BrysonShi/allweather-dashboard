@@ -45,9 +45,7 @@
     .strategy-note { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.5; }
 
     /* KPI Grid */
-    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); margin-bottom: 20px; }
-    @media (max-width: 700px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 400px) { .kpis { grid-template-columns: 1fr 1fr; } }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--gap); margin-bottom: 20px; }
 
     .kpi { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--pad-card); display: flex; flex-direction: column; gap: 3px; }
     .kpi .label { font-size: 10px; color: var(--text-2); text-transform: uppercase; letter-spacing: .3px; font-weight: 500; }
@@ -219,6 +217,7 @@
     const current = data.total_current_value || 0;
     const pnlAmt = data.total_pnl_amount || 0;
     const pnlPct = data.total_pnl_pct || 0;
+    const cashBalance = data.cash_balance || 0;
     const holdings = data.holdings || [];
 
     area.innerHTML = `
@@ -236,6 +235,11 @@
         <div class="label">总盈亏</div>
         <div class="value num ${pnlAmt >= 0 ? 'pnl-pos' : 'pnl-neg'}">${pnlAmt >= 0 ? '+' : ''}${fmtUSD2(pnlAmt)}</div>
         <div class="delta ${pnlPct >= 0 ? 'up' : 'down'}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</div>
+      </div>
+      <div class="kpi">
+        <div class="label">现金余额</div>
+        <div class="value num" style="color:#3ddc97">${fmtUSD2(cashBalance)}</div>
+        <div class="sub">可用资金</div>
       </div>
       <div class="kpi">
         <div class="label">持有标的</div>
@@ -314,6 +318,8 @@
     if (ts) {
       const d = new Date(ts);
       el.textContent = '更新 ' + d.toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+      el.style.color = '#ffffff';
+      el.style.fontWeight = '600';
     }
   }
 

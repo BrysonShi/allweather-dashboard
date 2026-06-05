@@ -48,6 +48,21 @@ def run():
     total_value = 0
     total_pnl = 0
 
+    # 获取现金余额
+    print("\n=== 获取账户现金余额 ===")
+    cash_balance = 0.0
+    try:
+        bal_resp = trade_ctx.account_balance()
+        for bal in bal_resp:
+            currency = getattr(bal, 'currency', '')
+            if currency.upper() == 'USD':
+                cash_balance = float(getattr(bal, 'cash', 0))
+                print(f"  USD 现金: ${cash_balance}")
+            else:
+                print(f"  {currency} 现金: {getattr(bal, 'cash', 0)}")
+    except Exception as e:
+        print(f"  获取现金余额失败: {e}")
+
     for pos in target:
         sym = pos.symbol
         qty = float(pos.quantity)
@@ -86,6 +101,7 @@ def run():
         "total_current_value": round(total_value, 2),
         "total_pnl_amount": round(total_pnl, 2),
         "total_pnl_pct": round((total_pnl / total_cost * 100) if total_cost else 0, 2),
+        "cash_balance": round(cash_balance, 2),
         "holdings": holdings,
         "allocation": {
             "total_budget_usd": 1500,
