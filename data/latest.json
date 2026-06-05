@@ -1,10 +1,11 @@
 {
-  "updated_at": "2026-06-05T08:40:08.011174+00:00",
+  "updated_at": "2026-06-05T08:46:39.270559+00:00",
   "account_currency": "USD",
   "total_invested": 1470.31,
   "total_current_value": 1470.73,
   "total_pnl_amount": 0.42,
   "total_pnl_pct": 0.03,
+  "cash_balance": 0.0,
   "holdings": [
     {
       "symbol": "YMAG.US",
@@ -17,7 +18,7 @@
       "pnl_amount": -0.96,
       "pnl_pct": -0.16,
       "currency": "USD",
-      "last_updated": "2026-06-05T08:40:08.011092+00:00"
+      "last_updated": "2026-06-05T08:46:39.270409+00:00"
     },
     {
       "symbol": "SPDW.US",
@@ -30,7 +31,7 @@
       "pnl_amount": 0.56,
       "pnl_pct": 0.27,
       "currency": "USD",
-      "last_updated": "2026-06-05T08:40:08.011126+00:00"
+      "last_updated": "2026-06-05T08:46:39.270440+00:00"
     },
     {
       "symbol": "IAUI.US",
@@ -43,7 +44,7 @@
       "pnl_amount": 0.0,
       "pnl_pct": 0.0,
       "currency": "USD",
-      "last_updated": "2026-06-05T08:40:08.011138+00:00"
+      "last_updated": "2026-06-05T08:46:39.270452+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -56,7 +57,7 @@
       "pnl_amount": -0.09,
       "pnl_pct": -0.11,
       "currency": "USD",
-      "last_updated": "2026-06-05T08:40:08.011149+00:00"
+      "last_updated": "2026-06-05T08:46:39.270461+00:00"
     },
     {
       "symbol": "DBMF.US",
@@ -69,7 +70,7 @@
       "pnl_amount": 0.91,
       "pnl_pct": 0.2,
       "currency": "USD",
-      "last_updated": "2026-06-05T08:40:08.011167+00:00"
+      "last_updated": "2026-06-05T08:46:39.270552+00:00"
     }
   ],
   "allocation": {
