@@ -6,7 +6,6 @@
 
 import os
 import json
-import asyncio
 import datetime
 
 APP_KEY = os.environ.get("LONGPORT_APP_KEY", "")
@@ -39,7 +38,7 @@ def run():
     quotes = {}
     if symbols:
         print("=== 获取行情 ===")
-        qresp = asyncio.run(quote_ctx.quote(symbols))
+        qresp = quote_ctx.quote(symbols)  # 同步方法
         for q in qresp:
             quotes[q.symbol] = q
             print(f"  {q.symbol}: ${q.last_done} ({q.change_ratio*100:.2f}%)")
