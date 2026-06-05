@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install LongPort SDK
+        run: pip install longport==3.0.7
+
       - name: Run fetch script
         env:
           LONGPORT_APP_KEY: ${{ secrets.LONGPORT_APP_KEY }}
