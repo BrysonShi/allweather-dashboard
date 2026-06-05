@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>全天候策略看板</title>
+  <meta name="description" content="桥水全天候配置 · 月月分红 · 防守型ETF组合" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-0: #0a0c10; --bg-1: #0e1116; --bg-2: #13171f; --bg-3: #1a1f2a;
+      --line: #1f2533; --line-2: #2a3243;
+      --text-0: #e8ecf3; --text-1: #9ba4b6; --text-2: #5e677a; --text-3: #3e4658;
+      --accent: #7aa2ff; --accent-2: #a5beff;
+      --ok: #3ddc97; --warn: #ffb454; --danger: #ff5c7a;
+      --fs-h1: 15px; --fs-h2: 10px; --fs-body: 13px; --fs-sm: 12px; --fs-xs: 11px;
+      --fs-num-lg: 22px; --fs-num-xl: 28px;
+      --pad-card: 12px 14px; --gap: 10px; --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg-0); color: var(--text-0); font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.5; }
+    .num { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    ::selection { background: rgba(122,162,255,.3); color: #fff; }
+
+    .main-content { min-height: 100vh; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    /* Header */
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .title-area h1 { margin: 0 0 4px; font-size: 20px; font-weight: 700; color: var(--text-0); }
+    .title-area p { margin: 0; color: var(--text-2); font-size: var(--fs-sm); }
+    .header-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .tag { background: rgba(122,162,255,.12); color: var(--accent); border: 1px solid rgba(122,162,255,.25); font-size: var(--fs-xs); padding: 3px 8px; border-radius: 20px; font-weight: 500; }
+    .update-time { font-family: "JetBrains Mono", monospace; font-size: var(--fs-xs); color: var(--text-3); }
+
+    /* Strategy intro */
+    .strategy-card { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--pad-card); margin-bottom: 20px; }
+    .strategy-card h2 { font-size: var(--fs-h2); text-transform: uppercase; letter-spacing: .4px; margin: 0 0 10px; color: var(--text-2); font-weight: 500; }
+    .strategy-formula { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .allot-chip { background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 6px; padding: 5px 10px; font-size: var(--fs-sm); display: flex; align-items: center; gap: 6px; transition: border-color .15s; }
+    .allot-chip:hover { border-color: var(--accent); }
+    .allot-chip .ticker { font-family: "JetBrains Mono", monospace; font-size: var(--fs-xs); color: var(--accent); font-weight: 600; }
+    .allot-chip .pct { font-size: var(--fs-xs); color: var(--text-1); font-weight: 500; }
+    .strategy-note { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.5; }
+
+    /* KPI Grid */
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); margin-bottom: 20px; }
+    @media (max-width: 700px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 400px) { .kpis { grid-template-columns: 1fr 1fr; } }
+
+    .kpi { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--pad-card); display: flex; flex-direction: column; gap: 3px; }
+    .kpi .label { font-size: 10px; color: var(--text-2); text-transform: uppercase; letter-spacing: .3px; font-weight: 500; }
+    .kpi .value { font-size: var(--fs-num-lg); font-weight: 700; color: var(--text-0); letter-spacing: -.5px; line-height: 1.1; margin-top: 2px; }
+    .kpi .sub { font-size: var(--fs-xs); color: var(--text-2); }
+    .kpi .delta { font-size: var(--fs-sm); font-family: "JetBrains Mono", monospace; font-weight: 600; margin-top: 2px; }
+    .kpi .delta.up { color: var(--danger); }
+    .kpi .delta.down { color: var(--ok); }
+    .kpi .delta.flat { color: var(--text-2); }
+
+    /* Holdings Table */
+    section h2 { font-size: var(--fs-h2); text-transform: uppercase; letter-spacing: .4px; margin: 0 0 10px; color: var(--text-2); font-weight: 500; }
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line); }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: var(--bg-2); }
+    th { padding: 8px 12px; text-align: left; font-size: 10px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .4px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    td { padding: 10px 12px; font-size: var(--fs-sm); border-bottom: 1px solid var(--line); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr { background: var(--bg-1); transition: background .1s; }
+    tbody tr:hover { background: var(--bg-2); }
+    .ticker-cell { display: flex; align-items: center; gap: 8px; }
+    .ticker-badge { font-family: "JetBrains Mono", monospace; font-size: var(--fs-xs); font-weight: 700; color: var(--accent); background: rgba(122,162,255,.1); border: 1px solid rgba(122,162,255,.2); padding: 2px 6px; border-radius: 4px; }
+    .etf-name { color: var(--text-1); font-size: var(--fs-xs); }
+    .num-cell { font-family: "JetBrains Mono", monospace; font-size: var(--fs-sm); text-align: right; }
+    .text-right { text-align: right; }
+    .pnl-pos { color: var(--danger); }
+    .pnl-neg { color: var(--ok); }
+    .status-ok { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 6px; vertical-align: middle; }
+    .status-warn { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--warn); margin-right: 6px; vertical-align: middle; }
+    .status-danger { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--danger); margin-right: 6px; vertical-align: middle; }
+
+    /* Allocation chart */
+    .chart-bar-wrap { margin-bottom: 20px; }
+    .chart-bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 2px; margin-bottom: 6px; }
+    .chart-bar-seg { height: 100%; transition: opacity .2s; }
+    .chart-bar-seg:hover { opacity: 0.85; }
+    .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--text-1); }
+    .legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+    /* Loading & Error */
+    .loading { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 40px; color: var(--text-2); font-size: var(--fs-sm); }
+    .loading-spinner { width: 18px; height: 18px; border: 2px solid var(--line-2); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-msg { background: rgba(255,92,122,.1); border: 1px solid rgba(255,92,122,.3); border-radius: var(--radius); padding: 12px 16px; color: var(--danger); font-size: var(--fs-sm); }
+    .hidden { display: none !important; }
+
+    /* Footer */
+    footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); text-align: center; color: var(--text-3); font-size: var(--fs-xs); }
+  </style>
+</head>
+<body>
+
+<div class="main-content">
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div class="title-area">
+      <h1>🛡️ 全天候策略看板</h1>
+      <p>桥水全天候 · 防守配置 · 月月分红</p>
+    </div>
+    <div class="header-meta">
+      <span class="tag">All Weather</span>
+      <span class="update-time" id="updateTime">加载中…</span>
+    </div>
+  </header>
+
+  <!-- 策略说明 -->
+  <div class="strategy-card">
+    <h2>配置配方</h2>
+    <div class="strategy-formula" id="formulaArea">
+      <div class="allot-chip"><span class="ticker">YMAG</span><span class="pct">40%</span></div>
+      <div class="allot-chip"><span class="ticker">DBMF</span><span class="pct">30%</span></div>
+      <div class="allot-chip"><span class="ticker">SPDW</span><span class="pct">15%</span></div>
+      <div class="allot-chip"><span class="ticker">IAUI</span><span class="pct">7.5%</span></div>
+      <div class="allot-chip"><span class="ticker">GUNR</span><span class="pct">7.5%</span></div>
+    </div>
+    <p class="strategy-note">对标帖子配方：纳斯达克/大盘→YMAG，长债→DBMF，新兴债券→SPDW，黄金→IAUI，大宗商品→GUNR。总投资 $1,500，策略定位：防守配置，不择时。</p>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpis" id="kpiArea">
+    <div class="loading"><div class="loading-spinner"></div>加载持仓数据…</div>
+  </div>
+
+  <!-- 配置比例图 -->
+  <div class="chart-bar-wrap">
+    <h2>当前持仓比例</h2>
+    <div class="chart-bar" id="chartBar"></div>
+    <div class="chart-legend" id="chartLegend"></div>
+  </div>
+
+  <!-- 持仓明细 -->
+  <section>
+    <h2>持仓明细</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>标的</th>
+            <th class="text-right">持有份额</th>
+            <th class="text-right">成本价</th>
+            <th class="text-right">现价</th>
+            <th class="text-right">当前价值</th>
+            <th class="text-right">盈亏金额</th>
+            <th class="text-right">盈亏%</th>
+          </tr>
+        </thead>
+        <tbody id="holdingsBody">
+          <tr><td colspan="7" style="text-align:center;color:var(--text-3);padding:20px;">加载中…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    数据来源：LongPort API · 自动更新 · GitHub Pages 托管<br>
+    本页面仅供参考，不构成投资建议
+  </footer>
+
+</div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const DATA_URL = 'data/latest.json';
+  const ETF_COLORS = {
+    'YMAG.US': '#7aa2ff',
+    'SPDW.US': '#a5beff',
+    'IAUI.US': '#d4a64a',
+    'GUNR.US': '#3ddc97',
+    'DBMF.US': '#ffb454',
+  };
+  const ETF_NAMES = {
+    'YMAG.US': '2x MicroStrategy',
+    'SPDW.US': 'SuperDividend®',
+    'IAUI.US': 'Intl Agg Bond',
+    'GUNR.US': 'Global Timber & Agriculture',
+    'DBMF.US': 'iShares Intl Factors',
+  };
+
+  async function loadData() {
+    try {
+      const resp = await fetch(DATA_URL + '?t=' + Date.now());
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      return await resp.json();
+    } catch (e) {
+      console.error('数据加载失败:', e);
+      return null;
+    }
+  }
+
+  function fmtUSD(n) {
+    if (n == null || isNaN(n)) return '—';
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function fmtUSD2(n) {
+    if (n == null || isNaN(n)) return '—';
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function renderKPIs(data) {
+    const area = document.getElementById('kpiArea');
+    const invested = data.total_invested || 0;
+    const current = data.total_current_value || 0;
+    const pnlAmt = data.total_pnl_amount || 0;
+    const pnlPct = data.total_pnl_pct || 0;
+    const holdings = data.holdings || [];
+
+    area.innerHTML = `
+      <div class="kpi">
+        <div class="label">总投资</div>
+        <div class="value num">${fmtUSD(invested)}</div>
+        <div class="sub">目标本金</div>
+      </div>
+      <div class="kpi">
+        <div class="label">当前价值</div>
+        <div class="value num">${fmtUSD(current)}</div>
+        <div class="sub">实时市值</div>
+      </div>
+      <div class="kpi">
+        <div class="label">总盈亏</div>
+        <div class="value num ${pnlAmt >= 0 ? 'pnl-pos' : 'pnl-neg'}">${pnlAmt >= 0 ? '+' : ''}${fmtUSD2(pnlAmt)}</div>
+        <div class="delta ${pnlPct >= 0 ? 'up' : 'down'}">${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%</div>
+      </div>
+      <div class="kpi">
+        <div class="label">持有标的</div>
+        <div class="value num">${holdings.length}/5</div>
+        <div class="sub">YMAG/SPDW/IAUI/GUNR/DBMF</div>
+      </div>
+    `;
+  }
+
+  function renderChart(data) {
+    const holdings = data.holdings || [];
+    const total = data.total_current_value || 1;
+
+    // 配色
+    const colorMap = ETF_COLORS;
+    const nameMap = ETF_NAMES;
+
+    // 构建 chart bar
+    let barHTML = '';
+    let legendHTML = '';
+    const sorted = [...holdings].sort((a, b) => (b.current_value || 0) - (a.current_value || 0));
+
+    for (const h of sorted) {
+      const pct = ((h.current_value || 0) / total * 100).toFixed(1);
+      const color = colorMap[h.symbol] || '#5e677a';
+      const name = nameMap[h.symbol] || h.symbol;
+      barHTML += `<div class="chart-bar-seg" style="flex:${pct};background:${color}" title="${h.symbol} ${pct}%"></div>`;
+      legendHTML += `
+        <div class="legend-item">
+          <div class="legend-dot" style="background:${color}"></div>
+          <span>${h.symbol.replace('.US','')}</span>
+          <span style="color:var(--text-3)">${pct}%</span>
+        </div>`;
+    }
+
+    document.getElementById('chartBar').innerHTML = barHTML;
+    document.getElementById('chartLegend').innerHTML = legendHTML;
+  }
+
+  function renderHoldings(data) {
+    const tbody = document.getElementById('holdingsBody');
+    const holdings = data.holdings || [];
+
+    if (!holdings.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-3);padding:20px;">暂无持仓数据</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = holdings.map(h => {
+      const pnlAmt = h.pnl_amount || 0;
+      const pnlPct = h.pnl_pct || 0;
+      const isPos = pnlAmt >= 0;
+      const name = ETF_NAMES[h.symbol] || h.name || h.symbol;
+
+      return `
+        <tr>
+          <td>
+            <div class="ticker-cell">
+              <span class="ticker-badge">${h.symbol.replace('.US','')}</span>
+              <span class="etf-name">${name}</span>
+            </div>
+          </td>
+          <td class="num-cell num">${h.quantity}</td>
+          <td class="num-cell num">${fmtUSD2(h.cost_price)}</td>
+          <td class="num-cell num">${fmtUSD2(h.current_price)}</td>
+          <td class="num-cell num">${fmtUSD2(h.current_value)}</td>
+          <td class="num-cell num ${isPos ? 'pnl-pos' : 'pnl-neg'}">${isPos ? '+' : ''}${fmtUSD2(pnlAmt)}</td>
+          <td class="num-cell num ${isPos ? 'pnl-pos' : 'pnl-neg'}">${isPos ? '+' : ''}${pnlPct.toFixed(2)}%</td>
+        </tr>`;
+    }).join('');
+  }
+
+  function renderTimestamp(data) {
+    const el = document.getElementById('updateTime');
+    const ts = data.updated_at || data.updated;
+    if (ts) {
+      const d = new Date(ts);
+      el.textContent = '更新 ' + d.toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+    }
+  }
+
+  async function init() {
+    const data = await loadData();
+
+    if (!data) {
+      document.getElementById('kpiArea').innerHTML = `
+        <div class="error-msg">
+          ⚠ 数据加载失败。请确保已配置 GitHub Secrets 并推送代码到 GitHub，Actions 执行后数据将自动更新。
+        </div>`;
+      return;
+    }
+
+    renderKPIs(data);
+    renderChart(data);
+    renderHoldings(data);
+    renderTimestamp(data);
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>

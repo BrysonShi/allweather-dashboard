@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-06-05T07:30:00Z",
+  "account_currency": "USD",
+  "total_invested": 1500,
+  "total_current_value": 0,
+  "total_pnl_amount": 0,
+  "total_pnl_pct": 0,
+  "holdings": [],
+  "allocation": {
+    "total_budget_usd": 1500,
+    "target": {
+      "YMAG.US": 0.40,
+      "SPDW.US": 0.15,
+      "IAUI.US": 0.075,
+      "GUNR.US": 0.075,
+      "DBMF.US": 0.30
+    }
+  }
+}
