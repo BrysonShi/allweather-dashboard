@@ -47,7 +47,8 @@ def run():
 
     # 打印原始数据结构以便调试
     for ch in channels:
-        print(f"  [{ch.symbol}] {getattr(ch, 'stock_name', '?')} | qty={getattr(ch, 'quantity', 0)} | cost={getattr(ch, 'cost_price', 0)}")
+        print(f"  持仓对象: {ch}")
+        print(f"  类型: {type(ch)}, dir: {[a for a in dir(ch) if not a.startswith('_')]}")
 
     # 过滤目标 ETF
     target = []
