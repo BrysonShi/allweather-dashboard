@@ -15,21 +15,6 @@ ACCESS_TOKEN = os.environ.get("LONGPORT_ACCESS_TOKEN", "")
 OUTPUT_PATH = os.environ.get("OUTPUT_PATH", "data/latest.json")
 TARGET_ETFS = ["YMAG.US", "SPDW.US", "IAUI.US", "GUNR.US", "DBMF.US"]
 
-def fetch_positions(trade_ctx):
-    """获取持仓（同步方法）"""
-    resp = trade_ctx.stock_positions()
-    return resp.channels  # StockPositionsResponse.channels
-
-def fetch_quotes(quote_ctx, symbols):
-    """获取行情（async 方法）"""
-    async def _inner():
-        return await quote_ctx.quote(symbols)
-    return asyncio.get_event_loop().run_until_complete(_inner())
-
-async def async_fetch_quotes(quote_ctx, symbols):
-    """获取行情（async）"""
-    return await quote_ctx.quote(symbols)
-
 def run():
     from longport.openapi import Config, TradeContext, QuoteContext
 
@@ -38,51 +23,37 @@ def run():
     quote_ctx = QuoteContext(config)
 
     print("=== 获取持仓 ===")
-    try:
-        channels = fetch_positions(trade_ctx)
-    except Exception as e:
-        print(f"获取持仓失败: {e}")
-        channels = []
-    print(f"总持仓数量: {len(channels)}")
-
-    # 打印原始数据结构以便调试
+    resp = trade_ctx.stock_positions()
+    channels = resp.channels
+    all_positions = []
     for ch in channels:
-        print(f"  持仓对象: {ch}")
-        print(f"  类型: {type(ch)}, dir: {[a for a in dir(ch) if not a.startswith('_')]}")
+        all_positions.extend(getattr(ch, 'positions', []))
+    print(f"总持仓数量: {len(all_positions)}")
+    for pos in all_positions:
+        print(f"  [{pos.symbol}] {pos.symbol_name} | qty={pos.quantity} | cost=${pos.cost_price} | value=${pos.market_value}")
 
-    # 过滤目标 ETF
-    target = []
-    for ch in channels:
-        sym = getattr(ch, 'symbol', str(ch))
-        if any(t in sym for t in TARGET_ETFS):
-            target.append(ch)
+    target = [pos for pos in all_positions if any(t in pos.symbol for t in TARGET_ETFS)]
+    print(f"目标 ETF: {[pos.symbol for pos in target]}")
 
-    print(f"目标 ETF: {[getattr(ch, 'symbol', ch) for ch in target]}")
-
-    # 获取实时行情
-    symbols = [getattr(ch, 'symbol', str(ch)) for ch in target]
+    symbols = [pos.symbol for pos in target]
     quotes = {}
     if symbols:
         print("=== 获取行情 ===")
-        try:
-            qresp = asyncio.run(async_fetch_quotes(quote_ctx, symbols))
-            for q in qresp:
-                quotes[q.symbol] = q
-                print(f"  {q.symbol}: ${q.last_done} ({q.change_ratio*100:.2f}%)")
-        except Exception as e:
-            print(f"获取行情失败: {e}")
+        qresp = asyncio.run(quote_ctx.quote(symbols))
+        for q in qresp:
+            quotes[q.symbol] = q
+            print(f"  {q.symbol}: ${q.last_done} ({q.change_ratio*100:.2f}%)")
 
-    # 组装数据
     holdings = []
     total_cost = 0
     total_value = 0
     total_pnl = 0
 
-    for ch in target:
-        sym = getattr(ch, 'symbol', str(ch))
-        qty = float(getattr(ch, 'quantity', 0))
-        cost_price = float(getattr(ch, 'cost_price', 0))
-        stock_name = getattr(ch, 'stock_name', sym)
+    for pos in target:
+        sym = pos.symbol
+        qty = float(pos.quantity)
+        cost_price = float(pos.cost_price)
+        stock_name = pos.symbol_name
         quote = quotes.get(sym)
         current_price = float(quote.last_done) if quote and quote.last_done else cost_price
 
