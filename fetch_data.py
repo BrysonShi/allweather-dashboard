@@ -30,7 +30,7 @@ def run():
         all_positions.extend(getattr(ch, 'positions', []))
     print(f"总持仓数量: {len(all_positions)}")
     for pos in all_positions:
-        print(f"  [{pos.symbol}] {pos.symbol_name} | qty={pos.quantity} | cost=${pos.cost_price} | value=${pos.market_value}")
+        print(f"  [{pos.symbol}] {pos.symbol_name} | qty={pos.quantity} | cost=${pos.cost_price}")
 
     target = [pos for pos in all_positions if any(t in pos.symbol for t in TARGET_ETFS)]
     print(f"目标 ETF: {[pos.symbol for pos in target]}")
