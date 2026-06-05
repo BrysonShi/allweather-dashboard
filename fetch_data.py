@@ -56,10 +56,10 @@ def run():
         for bal in bal_resp:
             currency = getattr(bal, 'currency', '')
             if currency.upper() == 'USD':
-                cash_balance = float(getattr(bal, 'cash', 0))
-                print(f"  USD 现金: ${cash_balance}")
+                cash_balance = float(getattr(bal, 'available_cash', 0))
+                print(f"  USD 可用现金: ${cash_balance} (withdraw=${getattr(bal, 'withdraw_cash', 0)}, frozen={getattr(bal, 'frozen_cash', 0)}, settling={getattr(bal, 'settling_cash', 0)})")
             else:
-                print(f"  {currency} 现金: {getattr(bal, 'cash', 0)}")
+                print(f"  {currency} 可用现金: {getattr(bal, 'available_cash', 0)}")
     except Exception as e:
         print(f"  获取现金余额失败: {e}")
 
