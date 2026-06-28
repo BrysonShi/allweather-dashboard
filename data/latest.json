@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-27T03:44:36.948149+00:00",
+  "updated_at": "2026-06-28T04:08:17.500828+00:00",
   "account_currency": "USD",
-  "total_invested": 1467.88,
+  "total_invested": 1465.0,
   "total_current_value": 1375.79,
-  "total_pnl_amount": -92.09,
-  "total_pnl_pct": -6.27,
+  "total_pnl_amount": -89.21,
+  "total_pnl_pct": -6.09,
   "cash_balance": 0.0,
   "holdings": [
     {
@@ -18,20 +18,20 @@
       "pnl_amount": -55.71,
       "pnl_pct": -9.27,
       "currency": "USD",
-      "last_updated": "2026-06-27T03:44:36.947962+00:00"
+      "last_updated": "2026-06-28T04:08:17.500663+00:00"
     },
     {
       "symbol": "SPDW.US",
       "name": "SPDR World Ex Us",
       "quantity": 4.0,
-      "cost_price": 51.09,
-      "cost_value": 204.36,
+      "cost_price": 50.37,
+      "cost_value": 201.48,
       "current_price": 49.87,
       "current_value": 199.48,
-      "pnl_amount": -4.88,
-      "pnl_pct": -2.39,
+      "pnl_amount": -2.0,
+      "pnl_pct": -0.99,
       "currency": "USD",
-      "last_updated": "2026-06-27T03:44:36.948008+00:00"
+      "last_updated": "2026-06-28T04:08:17.500699+00:00"
     },
     {
       "symbol": "IAUI.US",
@@ -44,7 +44,7 @@
       "pnl_amount": -9.43,
       "pnl_pct": -8.77,
       "currency": "USD",
-      "last_updated": "2026-06-27T03:44:36.948020+00:00"
+      "last_updated": "2026-06-28T04:08:17.500710+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -57,7 +57,7 @@
       "pnl_amount": -7.53,
       "pnl_pct": -8.72,
       "currency": "USD",
-      "last_updated": "2026-06-27T03:44:36.948032+00:00"
+      "last_updated": "2026-06-28T04:08:17.500719+00:00"
     },
     {
       "symbol": "DBMF.US",
@@ -70,7 +70,7 @@
       "pnl_amount": -14.53,
       "pnl_pct": -3.1,
       "currency": "USD",
-      "last_updated": "2026-06-27T03:44:36.948138+00:00"
+      "last_updated": "2026-06-28T04:08:17.500819+00:00"
     }
   ],
   "allocation": {
