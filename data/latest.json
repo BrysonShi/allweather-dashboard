@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-30T03:56:46.337063+00:00",
+  "updated_at": "2026-07-01T04:11:32.166157+00:00",
   "account_currency": "USD",
-  "total_invested": 1464.99,
-  "total_current_value": 1388.62,
-  "total_pnl_amount": -76.37,
-  "total_pnl_pct": -5.21,
+  "total_invested": 1462.71,
+  "total_current_value": 1399.47,
+  "total_pnl_amount": -63.24,
+  "total_pnl_pct": -4.32,
   "cash_balance": 0.0,
   "holdings": [
     {
@@ -13,12 +13,12 @@
       "quantity": 49.0,
       "cost_price": 12.267,
       "cost_value": 601.08,
-      "current_price": 11.37,
-      "current_value": 557.13,
-      "pnl_amount": -43.95,
-      "pnl_pct": -7.31,
+      "current_price": 11.49,
+      "current_value": 563.01,
+      "pnl_amount": -38.07,
+      "pnl_pct": -6.33,
       "currency": "USD",
-      "last_updated": "2026-06-30T03:56:46.336876+00:00"
+      "last_updated": "2026-07-01T04:11:32.165927+00:00"
     },
     {
       "symbol": "SPDW.US",
@@ -26,12 +26,12 @@
       "quantity": 4.0,
       "cost_price": 50.368,
       "cost_value": 201.47,
-      "current_price": 50.1,
-      "current_value": 200.4,
-      "pnl_amount": -1.07,
-      "pnl_pct": -0.53,
+      "current_price": 50.39,
+      "current_value": 201.56,
+      "pnl_amount": 0.09,
+      "pnl_pct": 0.04,
       "currency": "USD",
-      "last_updated": "2026-06-30T03:56:46.336915+00:00"
+      "last_updated": "2026-07-01T04:11:32.165965+00:00"
     },
     {
       "symbol": "IAUI.US",
@@ -39,12 +39,12 @@
       "quantity": 2.0,
       "cost_price": 53.785,
       "cost_value": 107.57,
-      "current_price": 48.44,
-      "current_value": 96.88,
-      "pnl_amount": -10.69,
-      "pnl_pct": -9.94,
+      "current_price": 48.45,
+      "current_value": 96.9,
+      "pnl_amount": -10.67,
+      "pnl_pct": -9.92,
       "currency": "USD",
-      "last_updated": "2026-06-30T03:56:46.336934+00:00"
+      "last_updated": "2026-07-01T04:11:32.165979+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -52,25 +52,25 @@
       "quantity": 1.6,
       "cost_price": 54.019,
       "cost_value": 86.43,
-      "current_price": 49.16,
-      "current_value": 78.66,
-      "pnl_amount": -7.77,
-      "pnl_pct": -8.99,
+      "current_price": 49.28,
+      "current_value": 78.85,
+      "pnl_amount": -7.58,
+      "pnl_pct": -8.77,
       "currency": "USD",
-      "last_updated": "2026-06-30T03:56:46.336945+00:00"
+      "last_updated": "2026-07-01T04:11:32.165991+00:00"
     },
     {
       "symbol": "DBMF.US",
       "name": "iMGP DBi Managed Futures Strategy ETF",
       "quantity": 15.0,
-      "cost_price": 31.229,
-      "cost_value": 468.44,
-      "current_price": 30.37,
-      "current_value": 455.55,
-      "pnl_amount": -12.88,
-      "pnl_pct": -2.75,
+      "cost_price": 31.077,
+      "cost_value": 466.16,
+      "current_price": 30.61,
+      "current_value": 459.15,
+      "pnl_amount": -7.01,
+      "pnl_pct": -1.5,
       "currency": "USD",
-      "last_updated": "2026-06-30T03:56:46.337053+00:00"
+      "last_updated": "2026-07-01T04:11:32.166143+00:00"
     }
   ],
   "allocation": {
