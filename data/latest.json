@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-07-14T02:43:58.916525+00:00",
+  "updated_at": "2026-07-15T02:42:23.857997+00:00",
   "account_currency": "USD",
   "total_invested": 1455.41,
-  "total_current_value": 1413.67,
-  "total_pnl_amount": -41.74,
-  "total_pnl_pct": -2.87,
+  "total_current_value": 1422.81,
+  "total_pnl_amount": -32.6,
+  "total_pnl_pct": -2.24,
   "cash_balance": 0.0,
   "holdings": [
     {
@@ -13,12 +13,12 @@
       "quantity": 49.0,
       "cost_price": 12.118,
       "cost_value": 593.78,
-      "current_price": 11.7,
-      "current_value": 573.3,
-      "pnl_amount": -20.48,
-      "pnl_pct": -3.45,
+      "current_price": 11.79,
+      "current_value": 577.71,
+      "pnl_amount": -16.07,
+      "pnl_pct": -2.71,
       "currency": "USD",
-      "last_updated": "2026-07-14T02:43:58.916348+00:00"
+      "last_updated": "2026-07-15T02:42:23.857828+00:00"
     },
     {
       "symbol": "SPDW.US",
@@ -26,12 +26,12 @@
       "quantity": 4.0,
       "cost_price": 50.368,
       "cost_value": 201.47,
-      "current_price": 49.46,
-      "current_value": 197.84,
-      "pnl_amount": -3.63,
-      "pnl_pct": -1.8,
+      "current_price": 50.03,
+      "current_value": 200.12,
+      "pnl_amount": -1.35,
+      "pnl_pct": -0.67,
       "currency": "USD",
-      "last_updated": "2026-07-14T02:43:58.916385+00:00"
+      "last_updated": "2026-07-15T02:42:23.857860+00:00"
     },
     {
       "symbol": "IAUI.US",
@@ -39,12 +39,12 @@
       "quantity": 2.0,
       "cost_price": 53.785,
       "cost_value": 107.57,
-      "current_price": 48.47,
-      "current_value": 96.94,
-      "pnl_amount": -10.63,
-      "pnl_pct": -9.88,
+      "current_price": 49.03,
+      "current_value": 98.06,
+      "pnl_amount": -9.51,
+      "pnl_pct": -8.84,
       "currency": "USD",
-      "last_updated": "2026-07-14T02:43:58.916397+00:00"
+      "last_updated": "2026-07-15T02:42:23.857870+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -52,12 +52,12 @@
       "quantity": 1.6,
       "cost_price": 54.019,
       "cost_value": 86.43,
-      "current_price": 50.46,
-      "current_value": 80.74,
-      "pnl_amount": -5.69,
-      "pnl_pct": -6.59,
+      "current_price": 51.01,
+      "current_value": 81.62,
+      "pnl_amount": -4.81,
+      "pnl_pct": -5.57,
       "currency": "USD",
-      "last_updated": "2026-07-14T02:43:58.916406+00:00"
+      "last_updated": "2026-07-15T02:42:23.857877+00:00"
     },
     {
       "symbol": "DBMF.US",
@@ -65,12 +65,12 @@
       "quantity": 15.0,
       "cost_price": 31.077,
       "cost_value": 466.16,
-      "current_price": 30.99,
-      "current_value": 464.85,
-      "pnl_amount": -1.31,
-      "pnl_pct": -0.28,
+      "current_price": 31.02,
+      "current_value": 465.3,
+      "pnl_amount": -0.86,
+      "pnl_pct": -0.18,
       "currency": "USD",
-      "last_updated": "2026-07-14T02:43:58.916517+00:00"
+      "last_updated": "2026-07-15T02:42:23.857990+00:00"
     }
   ],
   "allocation": {
