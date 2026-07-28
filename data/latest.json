@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-07-27T03:27:30.793125+00:00",
+  "updated_at": "2026-07-28T02:44:32.206487+00:00",
   "account_currency": "USD",
-  "total_invested": 1447.18,
-  "total_current_value": 1385.1,
-  "total_pnl_amount": -62.07,
-  "total_pnl_pct": -4.29,
+  "total_invested": 1446.21,
+  "total_current_value": 1384.06,
+  "total_pnl_amount": -62.15,
+  "total_pnl_pct": -4.3,
   "cash_balance": 0.0,
   "holdings": [
     {
@@ -18,7 +18,7 @@
       "pnl_amount": -49.98,
       "pnl_pct": -8.54,
       "currency": "USD",
-      "last_updated": "2026-07-27T03:27:30.792975+00:00"
+      "last_updated": "2026-07-28T02:44:32.206339+00:00"
     },
     {
       "symbol": "SPDW.US",
@@ -26,25 +26,25 @@
       "quantity": 4.0,
       "cost_price": 50.368,
       "cost_value": 201.47,
-      "current_price": 49.39,
-      "current_value": 197.56,
-      "pnl_amount": -3.91,
-      "pnl_pct": -1.94,
+      "current_price": 49.59,
+      "current_value": 198.36,
+      "pnl_amount": -3.11,
+      "pnl_pct": -1.54,
       "currency": "USD",
-      "last_updated": "2026-07-27T03:27:30.793007+00:00"
+      "last_updated": "2026-07-28T02:44:32.206371+00:00"
     },
     {
       "symbol": "IAUI.US",
       "name": "NEOS Gold High Income ETF",
       "quantity": 2.0,
-      "cost_price": 53.785,
-      "cost_value": 107.57,
-      "current_price": 48.5,
-      "current_value": 97.0,
-      "pnl_amount": -10.57,
-      "pnl_pct": -9.83,
+      "cost_price": 53.3,
+      "cost_value": 106.6,
+      "current_price": 49.05,
+      "current_value": 98.1,
+      "pnl_amount": -8.5,
+      "pnl_pct": -7.97,
       "currency": "USD",
-      "last_updated": "2026-07-27T03:27:30.793016+00:00"
+      "last_updated": "2026-07-28T02:44:32.206380+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -52,12 +52,12 @@
       "quantity": 1.6,
       "cost_price": 54.019,
       "cost_value": 86.43,
-      "current_price": 52.39,
-      "current_value": 83.82,
-      "pnl_amount": -2.61,
-      "pnl_pct": -3.02,
+      "current_price": 51.86,
+      "current_value": 82.98,
+      "pnl_amount": -3.45,
+      "pnl_pct": -4.0,
       "currency": "USD",
-      "last_updated": "2026-07-27T03:27:30.793024+00:00"
+      "last_updated": "2026-07-28T02:44:32.206387+00:00"
     },
     {
       "symbol": "DBMF.US",
@@ -65,12 +65,12 @@
       "quantity": 15.0,
       "cost_price": 31.077,
       "cost_value": 466.16,
-      "current_price": 31.41,
-      "current_value": 471.15,
-      "pnl_amount": 4.99,
-      "pnl_pct": 1.07,
+      "current_price": 31.27,
+      "current_value": 469.05,
+      "pnl_amount": 2.89,
+      "pnl_pct": 0.62,
       "currency": "USD",
-      "last_updated": "2026-07-27T03:27:30.793118+00:00"
+      "last_updated": "2026-07-28T02:44:32.206480+00:00"
     }
   ],
   "allocation": {
