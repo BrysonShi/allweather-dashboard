@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-08-14T02:09:14.608508+00:00",
+  "updated_at": "2026-08-15T01:22:37.183194+00:00",
   "account_currency": "USD",
-  "total_invested": 1437.09,
-  "total_current_value": 1424.36,
-  "total_pnl_amount": -12.74,
-  "total_pnl_pct": -0.89,
+  "total_invested": 1431.61,
+  "total_current_value": 1426.31,
+  "total_pnl_amount": -5.29,
+  "total_pnl_pct": -0.37,
   "cash_balance": 0.0,
   "holdings": [
     {
       "symbol": "YMAG.US",
       "name": "YieldMax Magnificent 7 Fund of Option Income ETF",
       "quantity": 49.0,
-      "cost_price": 11.764,
-      "cost_value": 576.44,
-      "current_price": 11.39,
-      "current_value": 558.11,
-      "pnl_amount": -18.33,
-      "pnl_pct": -3.18,
+      "cost_price": 11.652,
+      "cost_value": 570.95,
+      "current_price": 11.4,
+      "current_value": 558.6,
+      "pnl_amount": -12.35,
+      "pnl_pct": -2.16,
       "currency": "USD",
-      "last_updated": "2026-08-14T02:09:14.608316+00:00"
+      "last_updated": "2026-08-15T01:22:37.182986+00:00"
     },
     {
       "symbol": "SPDW.US",
@@ -26,12 +26,12 @@
       "quantity": 4.0,
       "cost_price": 50.368,
       "cost_value": 201.47,
-      "current_price": 52.13,
-      "current_value": 208.52,
-      "pnl_amount": 7.05,
-      "pnl_pct": 3.5,
+      "current_price": 52.15,
+      "current_value": 208.6,
+      "pnl_amount": 7.13,
+      "pnl_pct": 3.54,
       "currency": "USD",
-      "last_updated": "2026-08-14T02:09:14.608354+00:00"
+      "last_updated": "2026-08-15T01:22:37.183031+00:00"
     },
     {
       "symbol": "IAUI.US",
@@ -39,12 +39,12 @@
       "quantity": 2.0,
       "cost_price": 53.3,
       "cost_value": 106.6,
-      "current_price": 51.42,
-      "current_value": 102.84,
-      "pnl_amount": -3.76,
-      "pnl_pct": -3.53,
+      "current_price": 51.64,
+      "current_value": 103.28,
+      "pnl_amount": -3.32,
+      "pnl_pct": -3.11,
       "currency": "USD",
-      "last_updated": "2026-08-14T02:09:14.608367+00:00"
+      "last_updated": "2026-08-15T01:22:37.183047+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -52,12 +52,12 @@
       "quantity": 1.6,
       "cost_price": 54.019,
       "cost_value": 86.43,
-      "current_price": 53.18,
-      "current_value": 85.09,
-      "pnl_amount": -1.34,
-      "pnl_pct": -1.55,
+      "current_price": 53.49,
+      "current_value": 85.58,
+      "pnl_amount": -0.85,
+      "pnl_pct": -0.98,
       "currency": "USD",
-      "last_updated": "2026-08-14T02:09:14.608379+00:00"
+      "last_updated": "2026-08-15T01:22:37.183059+00:00"
     },
     {
       "symbol": "DBMF.US",
@@ -65,12 +65,12 @@
       "quantity": 15.0,
       "cost_price": 31.077,
       "cost_value": 466.16,
-      "current_price": 31.32,
-      "current_value": 469.8,
-      "pnl_amount": 3.64,
-      "pnl_pct": 0.78,
+      "current_price": 31.35,
+      "current_value": 470.25,
+      "pnl_amount": 4.09,
+      "pnl_pct": 0.88,
       "currency": "USD",
-      "last_updated": "2026-08-14T02:09:14.608498+00:00"
+      "last_updated": "2026-08-15T01:22:37.183184+00:00"
     }
   ],
   "allocation": {
