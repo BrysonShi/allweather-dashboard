@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-16T01:27:54.205310+00:00",
+  "updated_at": "2026-08-17T01:24:46.660666+00:00",
   "account_currency": "USD",
   "total_invested": 1431.61,
   "total_current_value": 1426.31,
@@ -18,7 +18,7 @@
       "pnl_amount": -12.35,
       "pnl_pct": -2.16,
       "currency": "USD",
-      "last_updated": "2026-08-16T01:27:54.205145+00:00"
+      "last_updated": "2026-08-17T01:24:46.660487+00:00"
     },
     {
       "symbol": "SPDW.US",
@@ -31,7 +31,7 @@
       "pnl_amount": 7.13,
       "pnl_pct": 3.54,
       "currency": "USD",
-      "last_updated": "2026-08-16T01:27:54.205181+00:00"
+      "last_updated": "2026-08-17T01:24:46.660526+00:00"
     },
     {
       "symbol": "IAUI.US",
@@ -44,7 +44,7 @@
       "pnl_amount": -3.32,
       "pnl_pct": -3.11,
       "currency": "USD",
-      "last_updated": "2026-08-16T01:27:54.205191+00:00"
+      "last_updated": "2026-08-17T01:24:46.660538+00:00"
     },
     {
       "symbol": "GUNR.US",
@@ -57,7 +57,7 @@
       "pnl_amount": -0.85,
       "pnl_pct": -0.98,
       "currency": "USD",
-      "last_updated": "2026-08-16T01:27:54.205200+00:00"
+      "last_updated": "2026-08-17T01:24:46.660547+00:00"
     },
     {
       "symbol": "DBMF.US",
@@ -70,7 +70,7 @@
       "pnl_amount": 4.09,
       "pnl_pct": 0.88,
       "currency": "USD",
-      "last_updated": "2026-08-16T01:27:54.205303+00:00"
+      "last_updated": "2026-08-17T01:24:46.660657+00:00"
     }
   ],
   "allocation": {
